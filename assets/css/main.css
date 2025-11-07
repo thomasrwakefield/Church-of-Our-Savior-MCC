@@ -21,12 +21,19 @@ body {
     justify-content: center;
     padding: 0 1.5rem;
     color: #fff;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    overflow: hidden;
     opacity: 0;
     transform: scale(1.05);
     transition: opacity 1000ms ease, transform 1000ms ease;
+}
+
+.hero-slide img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .hero-slide::before {
@@ -35,6 +42,7 @@ body {
     inset: 0;
     background: linear-gradient(180deg, rgba(6, 78, 59, 0.75) 0%, rgba(15, 118, 110, 0.65) 50%, rgba(30, 64, 175, 0.6) 100%);
     mix-blend-mode: multiply;
+    z-index: 1;
 }
 
 .hero-slide::after {
@@ -42,11 +50,12 @@ body {
     position: absolute;
     inset: 0;
     background: linear-gradient(120deg, rgba(15, 23, 42, 0.45), rgba(15, 118, 110, 0.4));
+    z-index: 2;
 }
 
 .hero-slide-content {
     position: relative;
-    z-index: 10;
+    z-index: 3;
     max-width: 960px;
     text-align: center;
 }
